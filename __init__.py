@@ -20,3 +20,8 @@ def static_file(path):
 def send_static(path):
     return send_from_directory('static', path)
 
+
+@app.route('/templates/<path:path>')
+def send_templates(path):
+    return send_from_directory('templates', path)
+
