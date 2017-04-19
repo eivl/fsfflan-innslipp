@@ -6,8 +6,8 @@ app = Flask(__name__, template_folder=template_path)
 
 @app.route('/')
 def homepage():
-    # return render_template("main.html")
-    return "Hei på deg!"
+    return render_template("main.html")
+    # return "Hei på deg!"
 if __name__ == "__main__":
     app.debug = True
     app.run(debug=True, host='0.0.0.0')
