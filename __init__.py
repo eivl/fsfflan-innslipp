@@ -1,6 +1,8 @@
 from flask import Flask, render_template, send_from_directory
 
-app = Flask(__name__, static_url_path='')
+project_root = os.path.dirname(__file__)
+template_path = os.path.join(project_root, 'fsfflan-innslipp/templates')
+app = Flask(__name__, template_folder=template_path)
 
 
 @app.route('/')
