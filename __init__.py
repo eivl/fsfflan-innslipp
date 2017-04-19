@@ -1,6 +1,11 @@
 from flask import Flask, render_template, send_from_directory
+# import jinja2
+import os
 
-app = Flask(__name__)
+tml_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+
+app = Flask(__name__, template_folder=tml_dir)
+# app.jinja_loader = jinja2.FileSystemLoader('path/to/templates/directory')
 
 
 @app.route('/')
