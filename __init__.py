@@ -25,3 +25,4 @@ def send_static(path):
 def send_templates(path):
     return send_from_directory('templates', path)
 
+
