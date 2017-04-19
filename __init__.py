@@ -10,3 +10,7 @@ def homepage():
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
 
+
+@app.route('/<path:path>')
+def static_file(path):
+    return app.send_static_file(path)
