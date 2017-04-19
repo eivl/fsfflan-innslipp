@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__, static_url_path='')
 
@@ -14,3 +14,9 @@ if __name__ == "__main__":
 @app.route('/<path:path>')
 def static_file(path):
     return app.send_static_file(path)
+
+
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
+
