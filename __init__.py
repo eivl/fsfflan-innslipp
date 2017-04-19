@@ -1,15 +1,13 @@
 from flask import Flask, render_template, send_from_directory
 
-template_path = '/home/opascree/public_html/reg/fsfflan-innslipp/templates'
-app = Flask(__name__, template_folder=template_path)
+app = Flask(__name__)
 
 
 @app.route('/')
 def homepage():
-    return render_template("main.html")
+    return render_template('main.html')
     # return "Hei på deg!"
 if __name__ == "__main__":
-    app.debug = True
     app.run(debug=True, host='0.0.0.0')
 
 
