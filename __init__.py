@@ -1,7 +1,7 @@
 from flask import Flask, render_template, send_from_directory
 
 project_root = os.path.dirname(__file__)
-template_path = os.path.join(project_root, 'fsfflan-innslipp/templates')
+template_path = '/home/opascree/public_html/reg/fsfflan-innslipp/templates'
 app = Flask(__name__, template_folder=template_path)
 
 
