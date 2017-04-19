@@ -10,7 +10,7 @@ def homepage():
 
 
 @app.route('/m2')
-def homepage():
+def m2():
     return render_template('main.html')
 
 if __name__ == "__main__":
