@@ -5,8 +5,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
+    # return render_template('main.html')
+    return "Hei på deg!, Flask virker som det skal.. men mest sannsynlig ikke render_template"
+
+
+@app.route('/m2')
+def homepage():
     return render_template('main.html')
-    # return "Hei på deg!"
+
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
 
