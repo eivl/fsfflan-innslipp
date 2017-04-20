@@ -19,7 +19,7 @@ def m2():
     return render_template('main.html')
 
 
-@app.route('db')
+@app.route('/db')
 def db():
     mysql = MySQL()
     # MySQL configurations
