@@ -19,7 +19,7 @@
     <td class="{{ rowcount }}">{{ row[0] }}</td>
 {% set rowcount = rowcount + 1 %}
 {% else %}
-<td class="else">{{ row[0] }}</td>
+<td class="else {{ rowcount }}">{{ row[0] }}</td>
 {% endif %}
 
 
