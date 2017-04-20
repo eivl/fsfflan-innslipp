@@ -37,7 +37,7 @@ def db():
 
     conn.close()
 
-    return data
+    return DATABASE_HOST
 
 
 if __name__ == "__main__":
