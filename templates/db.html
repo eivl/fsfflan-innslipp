@@ -12,13 +12,13 @@
 <h1>Test</h1>
 <p>Dette er bare en test! Mulig jeg slipper å restert apache</p>
 <table class="floorplan">
-{{ rowcount = 0 }}
+{{ set rowcount = 0 }}
 {% for row in data %}
 
 {% if rowcount = row[0] %}
 <tr>
     <td>{{ row[0] }}</td>
-{{ rowcount = rowcount + 1 }}
+{{ set rowcount = rowcount + 1 }}
 {% else %}
 <td>{{ row[0] }}</td>
 {% endif %}
