@@ -14,18 +14,7 @@
 <table class="floorplan">
 {{ set rowcount = 0 }}
 {% for row in data %}
-
-{% if rowcount = int(row[0]) %}
-<tr>
-    <td>{{ row[0] }}</td>
-{{ set rowcount = rowcount + 1 }}
-{% else %}
-<td>{{ row[0] }}</td>
-{% endif %}
-
-
-
-
+{{ row[3] }}
 {% endfor %}
 </table>
 </body>
