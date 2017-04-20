@@ -15,7 +15,7 @@
 {% set rowcount = 0 %}
 {% for row in data %}
 
-{% if rowcount == int(row[0]) %}
+{% if rowcount == row[0] %}
 <tr>
     <td>{{ row[0] }}</td>
 {% set rowcount = rowcount + 1 %}
