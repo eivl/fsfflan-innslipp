@@ -30,8 +30,9 @@ def db():
     mysql.init_app(app)
     conn = mysql.connect()
     cursor = conn.cursor()
+    query_floor_with_all = "SELECT FP.*, FT.*, T.id, T.ticket_code, T.holder_name, T.holder_mail from floorplan FP left join floortypes FT on FP.type = FT.id left join tickets T on FP.ticket = T.id;"
     query_string = "SELECT * from tickets"
-    cursor.execute(query_string)
+    cursor.execute(query_floor_with_all)
 
     data = cursor.fetchall()
 
