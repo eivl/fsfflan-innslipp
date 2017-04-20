@@ -37,7 +37,7 @@ def db():
 
     db.close()
 
-    return render_template(data)
+    return data
 
 
 if __name__ == "__main__":
