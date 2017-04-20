@@ -37,8 +37,8 @@ def db():
     data = cursor.fetchall()
 
     conn.close()
-
-    return jsonify(data=data)
+    return render_template('db.html', data=data)
+    # return jsonify(data=data)
 
 
 if __name__ == "__main__":
