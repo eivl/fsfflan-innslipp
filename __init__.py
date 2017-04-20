@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, jsonify
 from flaskext.mysql import MySQL
 from mysecret import DATABASE_USER, DATABASE_PASS, DATABASE_HOST
 from werkzeug import generate_password_hash, check_password_hash
@@ -37,7 +37,7 @@ def db():
 
     conn.close()
 
-    return DATABASE_HOST
+    return jsonify(data=data)
 
 
 if __name__ == "__main__":
