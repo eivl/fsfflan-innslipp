@@ -35,7 +35,7 @@ def db():
 
     data = cursor.fetchall()
 
-    db.close()
+    conn.close()
 
     return data
 
