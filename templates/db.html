@@ -12,8 +12,18 @@
 <h1>Test</h1>
 <p>Dette er bare en test! Mulig jeg slipper å restert apache</p>
 <table class="floorplan">
+{% set rowcount = 0 %}
 {% for row in data %}
-{{ row[3] }}
+
+{% if rowcount == int(row[0]) %}
+<tr>
+    <td>{{ row[0] }}</td>
+{% set rowcount = rowcount + 1 %}
+{% else %}
+<td>{{ row[0] }}</td>
+{% endif %}
+
+
 {% endfor %}
 </table>
 </body>
