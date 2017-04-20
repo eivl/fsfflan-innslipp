@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*
 from flask import Flask, render_template, send_from_directory
 # import jinja2
 # import os
