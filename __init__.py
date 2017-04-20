@@ -1,42 +1,44 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*
 from flask import Flask, render_template, send_from_directory
-# import jinja2
-# import os
+from flask.ext.mysql import MySQL
+from mysecret import DATABASE_USER, DATABASE_PASS, DATABASE_HOST
+from werkzeug import generate_password_hash, check_password_hash
 
-# tml_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 
 app = Flask(__name__)
-# app = Flask(__name__, template_folder=tml_dir)
-# app.jinja_loader = jinja2.FileSystemLoader('/home/opascree/public_html/reg/fsfflan-innslipp/templates')
 
 
 @app.route('/')
 def homepage():
-    #return render_template('main.html')
-    return "Hei på deg!, Flask virker som det skal.. men mest sannsynlig ikke render_template"
+    return "Hei på deg!, Flask virker som det skal.."
 
 
 @app.route('/m2')
 def m2():
     return render_template('main.html')
 
+
+@app.route('db')
+def db():
+    mysql = MySQL()
+    # MySQL configurations
+    app.config['MYSQL_DATABASE_USER'] = DATABASE_USER
+    app.config['MYSQL_DATABASE_PASSWORD'] = DATABASE_PASS
+    app.config['MYSQL_DATABASE_DB'] = 'opascree_lan-seats'
+    app.config['MYSQL_DATABASE_HOST'] = DATABASE_HOST
+    mysql.init_app(app)
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    query_string = "SELECT * from tickets"
+    cursor.execute(query_string)
+
+    data = cursor.fetchall()
+
+    db.close()
+
+    return render_template(data)
+
+
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
-
-
-# @app.route('/<path:path>')
-# def static_file(path):
-#     return app.send_static_file(path)
-
-
-# @app.route('/static/<path:path>')
-# def send_static(path):
-#     return send_from_directory('static', path)
-
-
-# @app.route('/templates/<path:path>')
-# def send_templates(path):
-#     return send_from_directory('templates', path)
-
-
