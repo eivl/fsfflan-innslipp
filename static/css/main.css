@@ -59,11 +59,14 @@ width: 51px;
 .stage { background: #AA00AA;
 width: 51px;
     height: 51px; }
-.seat_available { background: #00FF00; border: 1px solid #000000; }
+.seat_available { background: #00FF00; border: 1px solid #000000;width: 51px;
+    height: 51px; }
 .seat_available:hover { background: #00aa00; border: 1px solid #000000; }
-.seat_taken { background: #FF0000; border: 1px solid #000000; }
+.seat_taken { background: #FF0000; border: 1px solid #000000; width: 51px;
+    height: 51px;}
 .seat_taken:hover { background: #aa0000; border: 1px solid #000000; }
-.seat_yours { background: #FFFF00; border: 1px solid #000000; }
+.seat_yours { background: #FFFF00; border: 1px solid #000000; width: 51px;
+    height: 51px;}
 .crew { background: #9933ff;
 width: 51px;
     height: 51px; }
