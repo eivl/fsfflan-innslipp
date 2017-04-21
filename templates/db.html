@@ -20,9 +20,9 @@
 
 
     <td class="{{ row[8] }}">
-    {% if row[8] == 'floor' %}
+    {% if (row[8] == 'seat_available' or row[8] == 'seat_taken') %}
     {{ row[5] }}, {{ row[6] }}
-    {% else %} GG
+    {% else %}
     {% endif %}
 
     </td>
@@ -30,17 +30,17 @@
 {% elif (loop.index % 31 == 0 and loop.index > 32) %}
 
     <td class="{{ row[8] }}">
-        {% if row[8] == 'floor' %}
+        {% if (row[8] == 'seat_available' or row[8] == 'seat_taken') %}
     {{ row[5] }}, {{ row[6] }}
-    {% else %} GG
+    {% else %}
     {% endif %}
     </td>
     <tr>
 {% else %}
 <td class="{{ row[8] }}">
-    {% if row[8] == 'floor' %}
+    {% if (row[8] == 'seat_available' or row[8] == 'seat_taken') %}
     {{ row[5] }}, {{ row[6] }}
-    {% else %} GG
+    {% else %}
     {% endif %}
 </td>
 
