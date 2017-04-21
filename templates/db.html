@@ -14,12 +14,11 @@
 <table class="floorplan">
 
 {% for row in data %}
-{% if forloop.index % 31 == 0 %}
+{% if loop.index % 31 == 0 %}
 <tr>
-    <td class="{{ forloop.index % 31}}">{{ row[0] }}</td>
-{% set rowcount = rowcount + 1 %}
+    <td class="{{ loop.index % 31}}">{{ row[0] }}</td>
 {% else %}
-<td class="else {{ forloop.index % 31 }}">{{ row[0] }}</td>
+<td class="else {{ loop.index % 31 }}">{{ row[0] }}</td>
 {% endif %}
 
 
