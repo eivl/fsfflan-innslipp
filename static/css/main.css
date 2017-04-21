@@ -44,7 +44,10 @@ table.sidebar {
 
 
 .wall { background: #000000;  }
-.floor { background: #FFFFFF;  }
+.floor { background: #FFFFFF;
+    width: 51px;
+    height: 51px;
+}
 .trapp { background: #666666;  }
 .utgang { background: #6699CD;  }
 .stage { background: #AA00AA;  }
