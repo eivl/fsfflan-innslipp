@@ -16,10 +16,10 @@
 {% for row in data %}
 {% if loop.index == row[0] %}
 <tr>
-    <td class="{{ loop.index }}">{{ row[0] }}</td>
+    <td class="{{ loop.index % 30}}">{{ row[0] }}</td>
 {% set rowcount = rowcount + 1 %}
 {% else %}
-<td class="else {{ loop.index }}">{{ row[0] }}</td>
+<td class="else {{ loop.index % 30 }}">{{ row[0] }}</td>
 {% endif %}
 
 
