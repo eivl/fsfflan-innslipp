@@ -12,14 +12,14 @@
 <h1>Test</h1>
 <p>Dette er bare en test! Mulig jeg slipper å restert apache</p>
 <table class="floorplan">
-{% set rowcount = 0 %}
+
 {% for row in data %}
-{% if rowcount == row[0] %}
+{% if loop.index == row[0] %}
 <tr>
-    <td class="{{ rowcount }}">{{ row[0] }}</td>
-{% rowcount = rowcount + 1 %}
+    <td class="{{ loop.index }}">{{ row[0] }}</td>
+{% set rowcount = rowcount + 1 %}
 {% else %}
-<td class="else {{ rowcount }}">{{ row[0] }}</td>
+<td class="else {{ loop.index }}">{{ row[0] }}</td>
 {% endif %}
 
 
