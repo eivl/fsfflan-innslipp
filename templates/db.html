@@ -29,10 +29,20 @@
     <tr>
 {% elif (loop.index % 31 == 0 and loop.index > 32) %}
 
-    <td class="{{ row[8] }}">{{ row[5] }}, {{ row[6] }}</td>
+    <td class="{{ row[8] }}">
+        {% if row[8] == 'floor' %}
+    {{ row[5] }}, {{ row[6] }}
+    {% else %} GG
+    {% endif %}
+    </td>
     <tr>
 {% else %}
-<td class="{{ row[8] }}">{{ row[5] }}, {{ row[6] }}</td>
+<td class="{{ row[8] }}">
+    {% if row[8] == 'floor' %}
+    {{ row[5] }}, {{ row[6] }}
+    {% else %} GG
+    {% endif %}
+</td>
 
 
 
