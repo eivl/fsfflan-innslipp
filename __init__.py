@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*
-from flask import Flask, render_template, send_from_directory, jsonify
+from flask import Flask, render_template, send_from_directory, jsonify, request
 from flaskext.mysql import MySQL
 from mysecret import DATABASE_USER, DATABASE_PASS, DATABASE_HOST
 from werkzeug import generate_password_hash, check_password_hash
+from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 
 
 app = Flask(__name__)
@@ -19,8 +20,25 @@ def m2():
     return render_template('main.html')
 
 
-@app.route('/db')
+class ReusableForm(Form):
+    name = TextField('Name:', validators=[validators.required()])
+
+
+@app.route('/db', methods=['GET', 'POST'])
 def db():
+    form = ReusableForm(request.form)
+
+    print form.errors
+    if request.method == 'POST':
+        name = request.form['name']
+        print name
+
+        if form.validate():
+            # Save the comment here.
+            flash('Hello ' + name)
+        else:
+            flash('All the form fields are required. ')
+
     mysql = MySQL()
     # MySQL configurations
     app.config['MYSQL_DATABASE_USER'] = DATABASE_USER
@@ -37,7 +55,7 @@ def db():
     data = cursor.fetchall()
 
     conn.close()
-    return render_template('db.html', data=data)
+    return render_template('db.html', data=data, form=form)
     # return jsonify(data=data)
 
 
