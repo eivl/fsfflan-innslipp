@@ -18,9 +18,9 @@
 
 
 
-<tr>
-    <td class="unik {{ loop.index % 31}}">{{ row[0] }}</td>
 
+    <td class="unik {{ loop.index % 31}}">{{ row[0] }}</td>
+    <tr>
 {% elif (loop.index % 31 == 0 and loop.index > 32) %}
 
     <td class="{{ loop.index % 31}}">{{ row[0] }}</td>
